@@ -129,3 +129,13 @@ def lowerandup():
 
 
 
+if __name__ == '__main__':
+    # test functions here
+    print(length_strings(string1))
+    print(charf(string1))
+    print(string_(string1))
+    print(ing_ly(string1))
+    print(print_long(test_list))
+    print(rev(string1))
+    print(lower_first(string1))
+    lowerandup()
