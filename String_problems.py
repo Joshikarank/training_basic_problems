@@ -99,9 +99,6 @@ def print_long(test_list):
 
 
 
-
-
-
 '''11. Write a Python program to reverse a string.'''
 
 def rev(string1):
