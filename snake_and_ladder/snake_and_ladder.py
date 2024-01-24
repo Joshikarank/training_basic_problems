@@ -63,7 +63,7 @@ class Game:
 
 
 
-if _name=="main_":
+if __name__=="__main__":
     p1=Player()
     p2=Player()
     snake_and_Ladder=Game(p1,p2)
