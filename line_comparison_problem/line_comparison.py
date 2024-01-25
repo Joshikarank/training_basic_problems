@@ -41,6 +41,7 @@ class Line:
         return f"Line({self.point1.x},{self.point1.y},{self.point2.x},{self.point2.y})"
 
 
+
 if __name__ == "__main__":
     line1 = Line(2, 5, 3, 4)
     line2 = Line(2, 5, 3, 4)
