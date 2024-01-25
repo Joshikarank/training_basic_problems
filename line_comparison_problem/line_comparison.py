@@ -13,10 +13,12 @@
 '''
 import math
 
+
 class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
 
 class Line:
     def __init__(self, x1, y1, x2, y2):
@@ -37,6 +39,7 @@ class Line:
 
     def __str__(self):
         return f"Line({self.point1.x},{self.point1.y},{self.point2.x},{self.point2.y})"
+
 
 if __name__ == "__main__":
     line1 = Line(2, 5, 3, 4)
