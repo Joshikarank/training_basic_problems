@@ -1,5 +1,4 @@
 '''
-
 @Author:  joshikarsn
 
 @Date: 2024-01-27 11:25:30
@@ -13,6 +12,13 @@
 
 import json
 import csv
+import logging
+
+logger = logging.basicConfig(filename='address_book.log', filemode='w', encoding='utf-8',  
+                             level=logging.INFO, format='%(asctime)s:%(filename)s:%(lineno)s:%(levelname)s:%(message)s')
+
+logger = logging.getLogger(__name__)
+logger.info('dfs')
 
 class Contact:
    def __init__(self, fname, lname, address, city, state, zip_code, phno, email):
