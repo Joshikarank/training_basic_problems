@@ -42,8 +42,8 @@ print(functools.reduce(lambda a, b: a if a > b else b, lis))
 
 from collections import Counter 
 
-my_list = ["geeks", "geeg", "keegs", "practice", "aa"] 
-str = "eegsk"
+my_list = ["joshi", "geeg", "osjhi", "practice", "aa"] 
+str = "isohj"
 
 
 result = list(filter(lambda x: (Counter(str) == Counter(x)), my_list)) 
