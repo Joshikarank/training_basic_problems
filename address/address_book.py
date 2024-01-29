@@ -10,7 +10,9 @@
 
 @Title : AddressBook Problem
 '''
+
 import json
+import csv
 
 class Contact:
    def __init__(self, fname, lname, address, city, state, zip_code, phno, email):
@@ -106,37 +108,47 @@ class AddressBook:
       print(contacts)
 
 class MultiAddressBook:
-   def __init__(self):
+    def __init__(self):
        self.books_dict = {}
        self.json_file = 'address_book.json'
 
-   def get_book(self, book_name):
+    def get_book(self, book_name):
        return self.books_dict.get(book_name)
 
-   def add_addressbook(self, addressbook):
+    def add_addressbook(self, addressbook):
         if addressbook.book_name in self.books_dict:
-          print("The Address Book already exists")
+            print("The Address Book already exists")
         else:
-          self.books_dict[addressbook.book_name] = addressbook
+            self.books_dict[addressbook.book_name] = addressbook
 
-   def delete_addressbook(self, name):
+    def delete_addressbook(self, name):
        if name in self.books_dict:
           del self.books_dict[name]
 
-   def get_contacts_by_city_or_state(self, city_or_state):
-      list(map(lambda book: book.contact_by_city_or_state(city_or_state), self.books_dict.values()))
+    def get_contacts_by_city_or_state(self, city_or_state):
+        list(map(lambda book: book.contact_by_city_or_state(city_or_state), self.books_dict.values()))
 
-   def save_to_json(self):
-      json_data = {}
-      with open(self.json_file, 'w') as file:
-         for name, book_obj in self.books_dict.items():
+    def save_to_json(self):
+       json_data = {}
+       with open(self.json_file, 'w') as file:
+        for name, book_obj in self.books_dict.items():
             if not name in json_data:
                json_data[name] = {}
-            contact_data = json_data.get(name)
-            for contact_obj in book_obj.contacts.values():
-               contact_data.update({contact_obj.fname: contact_obj.__dict__})
-         json.dump(json_data, file, indent=4)
-         print(json.dumps(json_data), type(json.dumps(json_data)))
+               contact_data = json_data.get(name)
+               for contact_obj in book_obj.contacts.values():
+                  contact_data.update({contact_obj.fname: contact_obj.__dict__})
+        json.dump(json_data, file, indent=4)
+        print(json.dumps(json_data), type(json.dumps(json_data)))
+         
+    def save_to_csv(self):
+        with open(self.json_file.replace(".json", ".csv"), 'w', newline='') as file:
+            csv_writer = csv.writer(file)
+            csv_writer.writerow(['Book Name', 'First Name', 'Last Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email'])
+            
+            for name, book_obj in self.books_dict.items():
+                for contact_obj in book_obj.contacts.values():
+                    csv_writer.writerow([name, contact_obj.fname, contact_obj.lname, contact_obj.address, contact_obj.city,
+                                         contact_obj.state, contact_obj.zip, contact_obj.phno, contact_obj.email])
 
 def get_book_obj(books):
    book_name = input('Enter book name: ')
@@ -154,6 +166,7 @@ if __name__ == "__main__":
             books.add_addressbook(book)
             book.add_contacts()
             books.save_to_json()
+            books.save_to_csv()
         elif choice == 2:
            book = get_book_obj(books)
            name = input("Enter the name of the Person: ")
