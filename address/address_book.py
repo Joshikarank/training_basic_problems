@@ -111,6 +111,7 @@ class MultiAddressBook:
     def __init__(self):
        self.books_dict = {}
        self.json_file = 'address_book.json'
+       self.csv_book = 'address_book.csv'
 
     def get_book(self, book_name):
        return self.books_dict.get(book_name)
@@ -138,10 +139,10 @@ class MultiAddressBook:
                for contact_obj in book_obj.contacts.values():
                   contact_data.update({contact_obj.fname: contact_obj.__dict__})
         json.dump(json_data, file, indent=4)
-        print(json.dumps(json_data), type(json.dumps(json_data)))
+        #print(json.dumps(json_data), type(json.dumps(json_data)))
          
     def save_to_csv(self):
-        with open(self.json_file.replace(".json", ".csv"), 'w', newline='') as file:
+        with open(self.csv_book, 'w', newline='') as file:
             csv_writer = csv.writer(file)
             csv_writer.writerow(['Book Name', 'First Name', 'Last Name', 'Address', 'City', 'State', 'Zip', 'Phone', 'Email'])
             
@@ -149,7 +150,7 @@ class MultiAddressBook:
                 for contact_obj in book_obj.contacts.values():
                     csv_writer.writerow([name, contact_obj.fname, contact_obj.lname, contact_obj.address, contact_obj.city,
                                          contact_obj.state, contact_obj.zip, contact_obj.phno, contact_obj.email])
-
+                    
 def get_book_obj(books):
    book_name = input('Enter book name: ')
    book = books.get_book(book_name)
