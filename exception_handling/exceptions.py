@@ -48,15 +48,3 @@ except NameError:
 	print ("An exception")
 	raise
 
-def example_function(x):
-    if o < 0:
-        raise ValueError("Input must be a non-negative number")
-    return o ** 2
-
-try:
-    result = example_function(-5)
-except ValueError as ve:
-    print(f"Error: {ve}")
-# Output: Error: Input must be a non-negative number
-
-
