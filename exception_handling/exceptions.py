@@ -49,12 +49,14 @@ except NameError:
 	raise
 
 def example_function(x):
-    if x < 0:
+    if o < 0:
         raise ValueError("Input must be a non-negative number")
-    return x ** 2
+    return o ** 2
 
 try:
     result = example_function(-5)
 except ValueError as ve:
     print(f"Error: {ve}")
 # Output: Error: Input must be a non-negative number
+
+
