@@ -1,3 +1,9 @@
+'''he filter() function in Python is another built-in function that is used to construct an iterator 
+from elements of an iterable for which a function returns true. In other words,
+ it filters the elements of an iterable based on a specified condition. The syntax of the filter() function is as follows:
+filter(function, iterable)'''
+
+
 def fun(variable):
 	letters = ['a', 'e', 'i', 'o', 'u']
 	if (variable in letters):	
