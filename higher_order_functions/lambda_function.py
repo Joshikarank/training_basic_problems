@@ -47,20 +47,16 @@ str = "isohj"
 
 print("hello world")
 
-
-
-'''hi everyone'''
-
-#comment
-
-
 result = list(filter(lambda x: (Counter(str) == Counter(x)), my_list)) 
 
 print(result) 
 
-
+#using a function inside lambda
 def is_multiple_of_3(num):
 	return num % 3 == 0
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 result1 = list(filter(lambda x: is_multiple_of_3(x), numbers))
 print(result1)
+#this is same as  above but using lambda directly in filter() method
+result2 = list(filter(lambda x: x if x % 3 ==0  else None , numbers))
+print(result2)
