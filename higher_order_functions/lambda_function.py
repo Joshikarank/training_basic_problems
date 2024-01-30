@@ -11,7 +11,7 @@ string1 = "hello"
 rs = lambda i : i.upper()
 print(rs(string1))
 
-
+	
 maxx = lambda a,b: a if( a > b ) else b
 print(maxx(22,3))
 
@@ -31,7 +31,7 @@ print(final_list)
 import functools
 from functools import reduce
 li = [5, 8, 10, 20, 50, 100]
-sum = reduce((lambda x, y: x + y), li)
+sum = reduce((lambda x, y: x + y ), li)
 print(sum)
 
 
@@ -45,7 +45,22 @@ from collections import Counter
 my_list = ["joshi", "geeg", "osjhi", "practice", "aa"] 
 str = "isohj"
 
+print("hello world")
+
+
+
+'''hi everyone'''
+
+#comment
+
 
 result = list(filter(lambda x: (Counter(str) == Counter(x)), my_list)) 
 
 print(result) 
+
+
+def is_multiple_of_3(num):
+	return num % 3 == 0
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+result1 = list(filter(lambda x: is_multiple_of_3(x), numbers))
+print(result1)
