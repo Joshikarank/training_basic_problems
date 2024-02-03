@@ -109,5 +109,3 @@ if __name__ == "__main__":
     user_reg.email_validation(enter_email)
     user_reg.mobile_valid(mobile_enter)
     user_reg.password_validation(pass_enter)
-
-
